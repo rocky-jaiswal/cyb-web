@@ -6796,26 +6796,35 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
   box-sizing: border-box;
 }
 
-/* line 15, ../../app/styles/_variables.scss */
+/* line 19, ../../app/styles/_variables.scss */
 body {
   font-family: 'Droid Sans', sans-serif;
 }
 
-/* line 19, ../../app/styles/_variables.scss */
+/* line 23, ../../app/styles/_variables.scss */
 h1, h2, h3, h4, h5 {
   font-family: 'Poiret One', serif;
 }
 
-/* line 23, ../../app/styles/_variables.scss */
+/* line 27, ../../app/styles/_variables.scss */
 input, textarea {
-  border: 1px solid #303c5c !important;
+  border: 1px solid #34495e !important;
   border-radius: 0px !important;
 }
 
-/* line 28, ../../app/styles/_variables.scss */
+/* line 32, ../../app/styles/_variables.scss */
+a {
+  color: #ecf0f1;
+}
+/* line 35, ../../app/styles/_variables.scss */
+a:hover {
+  color: #ecf0f1;
+}
+
+/* line 40, ../../app/styles/_variables.scss */
 .btn-app {
   border: 0;
-  background-color: #303c5c;
+  background-color: #34495e;
   color: #fff;
   cursor: pointer;
   font-weight: bold;
@@ -6823,15 +6832,15 @@ input, textarea {
   text-transform: uppercase;
   transition: all .1s linear;
 }
-/* line 38, ../../app/styles/_variables.scss */
+/* line 50, ../../app/styles/_variables.scss */
 .btn-app:hover {
   color: #e6e6e6;
-  background-color: #3a496f;
+  background-color: #3e5871;
 }
-/* line 43, ../../app/styles/_variables.scss */
+/* line 55, ../../app/styles/_variables.scss */
 .btn-app:active {
   color: #cccccc;
-  background-color: #475988;
+  background-color: #4b6a88;
 }
 
 /* line 5, ../../app/styles/main.scss */
@@ -6854,8 +6863,8 @@ input, textarea {
   height: 100%;
   width: 50%;
   padding-top: 20px;
-  background-color: #303c5c;
-  color: #81aeba;
+  background-color: #e74c3c;
+  color: white;
 }
 /* line 25, ../../app/styles/main.scss */
 .left h1 {
@@ -6864,7 +6873,7 @@ input, textarea {
 
 /* line 30, ../../app/styles/main.scss */
 .right, .right-content {
-  background-color: white;
+  background-color: #ecf0f1;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -6877,17 +6886,17 @@ input, textarea {
 .login, .signup, .add {
   width: 400px;
   height: 320px;
-  background-color: #a4d670;
+  background-color: #2980b9;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 80px;
-  border: 1px solid #527f24;
+  border: 1px solid #14405d;
   padding: 1px 0px 0px 20px;
 }
 
 /* line 52, ../../app/styles/main.scss */
 .signup {
-  height: 350px;
+  height: 360px;
 }
 
 /* line 57, ../../app/styles/main.scss */
@@ -6899,7 +6908,7 @@ input, textarea {
 /* line 63, ../../app/styles/main.scss */
 .box-a {
   border: 0;
-  background-color: #303c5c;
+  background-color: #34495e;
   font-weight: bold;
   padding: 12px 20px;
   text-transform: uppercase;
@@ -6914,12 +6923,12 @@ input, textarea {
 /* line 77, ../../app/styles/main.scss */
 .box-a:hover {
   color: #e6e6e6;
-  background-color: #3a496f;
+  background-color: #3e5871;
 }
 /* line 82, ../../app/styles/main.scss */
 .box-a:active {
   color: #cccccc;
-  background-color: #475988;
+  background-color: #4b6a88;
 }
 
 /* line 89, ../../app/styles/main.scss */
@@ -6931,8 +6940,8 @@ input, textarea {
   width: 30%;
   padding-top: 20px;
   padding-left: 20px;
-  background-color: #303c5c;
-  color: #81aeba;
+  background-color: #e74c3c;
+  color: #2980b9;
 }
 /* line 100, ../../app/styles/main.scss */
 .left-bar h3 {
@@ -6958,19 +6967,19 @@ input, textarea {
 .menu li {
   padding: 20px 10px;
   font-family: 'Poiret One', serif;
-  border-bottom: 1px solid #262626;
+  border-bottom: 1px solid #ecf0f1;
   font-weight: bold;
 }
 /* line 124, ../../app/styles/main.scss */
 .menu li a {
-  color: #81aeba;
+  color: #2980b9;
 }
 /* line 129, ../../app/styles/main.scss */
 .menu li.active {
   background-color: white;
-  color: #303c5c;
+  color: #e74c3c;
 }
 /* line 132, ../../app/styles/main.scss */
 .menu li.active a {
-  color: #303c5c;
+  color: #2980b9;
 }

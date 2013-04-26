@@ -19,8 +19,8 @@
   height: 100%;
   width: 50%;
   padding-top: 20px;
-  background-color: $darkblue;
-  color: $blue;
+  background-color: $left;
+  color: white;
 
   h1 {
     text-align: center;
@@ -28,7 +28,7 @@
 }
 
 .right {
-  background-color: white;
+  background-color: $clouds;
   position: absolute;
   top: 0px;
   right: 0px;
@@ -40,18 +40,18 @@
 .login {
   width: 400px;
   height: 320px;
-  background-color: $green;
+  background-color: $box;
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 80px;
-  border: 1px solid scale-lightness($green, -50%);
+  border: 1px solid scale-lightness($box, -50%);
   //@include box-shadow(scale-lightness($green, -50%) 0px 0px 3px);
   padding: 1px 0px 0px 20px;
 }
 
 .signup {
   @extend .login;
-  height: 350px;
+  height: 360px;
 }
 
 .add {
@@ -62,7 +62,7 @@
 
 .box-a {
   border: 0;
-  background-color: $darkblue;
+  background-color: $button;
   font-weight: bold;
   padding: 12px 20px;
   text-transform: uppercase;
@@ -76,12 +76,12 @@
 
   &:hover {
     color: scale-lightness(#fff, -10%);
-    background-color: scale-lightness($darkblue, 8%);
+    background-color: scale-lightness($button, 8%);
   }
 
   &:active {
     color: scale-lightness(#fff, -20%);
-    background-color: scale-lightness($darkblue, 18%);
+    background-color: scale-lightness($button, 18%);
   }
 
 }
@@ -94,7 +94,7 @@
   width: 30%;
   padding-top: 20px;
   padding-left: 20px;
-  background-color: $darkblue;
+  background-color: $left;
   color: $blue;
 
   h3 {
@@ -119,7 +119,7 @@
   li {
     padding: 20px 10px;
     font-family: 'Poiret One', serif;
-    border-bottom: 1px solid $gray;
+    border-bottom: 1px solid $clouds;
     font-weight: bold;
     a {
       color: $blue;
@@ -128,9 +128,9 @@
 
   li.active {
     background-color: white;
-    color: $darkblue;
+    color: $left;
     a {
-      color: $darkblue;
+      color: $blue;
     }
   }
 }

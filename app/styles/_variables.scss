@@ -3,12 +3,16 @@
 
 // Theme Colors
 //-------------------------------
-$pink: #DB6974;
-$darkblue: #303C5C;
-$green: #A4D670;
-$peach: #FFE8B7;
-$blue: #81AEBA;
-$gray: #262626;
+$orange: #e74c3c;
+$blue:  #2980b9;
+$grey1: #34495e;
+$grey2: #34495e;
+$clouds: #ecf0f1;
+
+$left: $orange;
+$box: $blue;
+$button: $grey1;
+
 
 $border-radius: 5px;
 
@@ -21,13 +25,21 @@ h1, h2, h3, h4, h5 {
 }
 
 input, textarea {
-  border: 1px solid $darkblue !important;
+  border: 1px solid $grey2 !important;
   border-radius: 0px !important;
+}
+
+a {
+  color: $clouds;
+
+  &:hover {
+    color: $clouds;
+  }
 }
 
 .btn-app {
   border: 0;
-  background-color: $darkblue;
+  background-color: $button;
   color: #fff;
   cursor: pointer;
   font-weight: bold;
@@ -37,12 +49,12 @@ input, textarea {
 
   &:hover {
     color: scale-lightness(#fff, -10%);
-    background-color: scale-lightness($darkblue, 8%);
+    background-color: scale-lightness($button, 8%);
   }
 
   &:active {
     color: scale-lightness(#fff, -20%);
-    background-color: scale-lightness($darkblue, 18%);
+    background-color: scale-lightness($button, 18%);
   }
 
 }
