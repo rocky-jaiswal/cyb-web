@@ -6913,25 +6913,30 @@ a:hover {
   padding: 12px 20px;
   text-transform: uppercase;
   transition: all .1s linear;
-  width: 180px;
+  width: 170px;
   margin-bottom: 5px;
+  text-align: center;
 }
-/* line 73, ../../app/styles/main.scss */
+/* line 74, ../../app/styles/main.scss */
 .box-a a {
   color: #fff;
 }
 /* line 77, ../../app/styles/main.scss */
+.box-a a:hover {
+  text-decoration: none;
+}
+/* line 82, ../../app/styles/main.scss */
 .box-a:hover {
   color: #e6e6e6;
   background-color: #3e5871;
 }
-/* line 82, ../../app/styles/main.scss */
+/* line 87, ../../app/styles/main.scss */
 .box-a:active {
   color: #cccccc;
   background-color: #4b6a88;
 }
 
-/* line 89, ../../app/styles/main.scss */
+/* line 94, ../../app/styles/main.scss */
 .left-bar {
   position: absolute;
   top: 0px;
@@ -6941,45 +6946,45 @@ a:hover {
   padding-top: 20px;
   padding-left: 20px;
   background-color: #e74c3c;
-  color: #2980b9;
+  color: #ecf0f1;
 }
-/* line 100, ../../app/styles/main.scss */
+/* line 105, ../../app/styles/main.scss */
 .left-bar h3 {
   font-size: 2.5em;
 }
 
-/* line 105, ../../app/styles/main.scss */
+/* line 110, ../../app/styles/main.scss */
 .right-content {
   width: 70%;
 }
-/* line 109, ../../app/styles/main.scss */
+/* line 114, ../../app/styles/main.scss */
 .right-content h3 {
   padding-left: 20px;
 }
 
-/* line 114, ../../app/styles/main.scss */
+/* line 119, ../../app/styles/main.scss */
 .menu {
   list-style: none;
   font-size: 20px;
   margin-top: 50px;
 }
-/* line 119, ../../app/styles/main.scss */
+/* line 124, ../../app/styles/main.scss */
 .menu li {
   padding: 20px 10px;
   font-family: 'Poiret One', serif;
   border-bottom: 1px solid #ecf0f1;
   font-weight: bold;
 }
-/* line 124, ../../app/styles/main.scss */
+/* line 129, ../../app/styles/main.scss */
 .menu li a {
   color: #2980b9;
 }
-/* line 129, ../../app/styles/main.scss */
+/* line 134, ../../app/styles/main.scss */
 .menu li.active {
   background-color: white;
   color: #e74c3c;
 }
-/* line 132, ../../app/styles/main.scss */
+/* line 137, ../../app/styles/main.scss */
 .menu li.active a {
   color: #2980b9;
 }
