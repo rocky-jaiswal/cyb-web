@@ -1,0 +1,48 @@
+@import url(http://fonts.googleapis.com/css?family=Poiret+One);
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+// Theme Colors
+//-------------------------------
+$pink: #DB6974;
+$darkblue: #303C5C;
+$green: #A4D670;
+$peach: #FFE8B7;
+$blue: #81AEBA;
+$gray: #262626;
+
+$border-radius: 5px;
+
+body {
+  font-family: 'Droid Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poiret One', serif;
+}
+
+input, textarea {
+  border: 1px solid $darkblue !important;
+  border-radius: 0px !important;
+}
+
+.btn-app {
+  border: 0;
+  background-color: $darkblue;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 12px 20px;
+  text-transform: uppercase;
+  transition: all .1s linear;
+
+  &:hover {
+    color: scale-lightness(#fff, -10%);
+    background-color: scale-lightness($darkblue, 8%);
+  }
+
+  &:active {
+    color: scale-lightness(#fff, -20%);
+    background-color: scale-lightness($darkblue, 18%);
+  }
+
+}

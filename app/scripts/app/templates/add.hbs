@@ -1,0 +1,16 @@
+{{> sidebar}}
+<div class="span6">
+  <div class="right-content">
+    <h3>Save a Blessing</h3>
+    <div class="add">
+      <form action="http://localhost:3000/blessings" method="POST" id="add-form">
+        <input type="text" placeholder="Title" name="title">
+        <textarea placeholder="Description" name="description"/>
+        <input type="date" placeholder="Date" name="date">
+        <input type="time" placeholder="Time" name="time" value="12:00">
+        <br/>
+        <input type="submit" value="Save" class="btn-app">
+      </form>
+    </div>
+  </div>
+</div>
