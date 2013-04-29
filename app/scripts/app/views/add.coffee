@@ -14,16 +14,17 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!../templates/add
       if localStorage.getItem("user")
         @render()
 
-    render: ->
+    render: (obj) ->
       Handlebars.registerPartial("sidebar", sidebarTemplate)
-      $(@el).html(@template({add: true}))
+      $(@el).html(@template(_.extend({add: true}, obj)))
       
     handleSubmit: (e) ->
       e.preventDefault()
-      $("#add-form").ajaxSubmit({data: {token: @model.get("token")}, success: @handleResponse, error: @handleError})
+      $("#add-form").ajaxSubmit({data: {authentication_token: @model.get("authentication_token")}, success: @handleResponse, error: @handleError})
 
     handleResponse: (response, status, xhr, form) =>
-      console.log response
+      if status is "success"
+        @render({message: "Saved successfully!"})
 
-    handleError: ->
-      console.log "error!"
+    handleError: (response) =>
+      @render({message: response.responseText})

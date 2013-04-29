@@ -20,9 +20,10 @@
       ViewOwnView.prototype.template = Handlebars.compile(viewownTemplate);
 
       ViewOwnView.prototype.initialize = function() {
-        if (localStorage.getItem("user")) {
-          return this.render();
-        }
+        this.collection.fetch({
+          async: false
+        });
+        return this.render();
       };
 
       ViewOwnView.prototype.render = function() {

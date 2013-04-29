@@ -12,6 +12,7 @@
       __extends(AddView, _super);
 
       function AddView() {
+        this.handleError = __bind(this.handleError, this);
         this.handleResponse = __bind(this.handleResponse, this);        _ref = AddView.__super__.constructor.apply(this, arguments);
         return _ref;
       }
@@ -30,18 +31,18 @@
         }
       };
 
-      AddView.prototype.render = function() {
+      AddView.prototype.render = function(obj) {
         Handlebars.registerPartial("sidebar", sidebarTemplate);
-        return $(this.el).html(this.template({
+        return $(this.el).html(this.template(_.extend({
           add: true
-        }));
+        }, obj)));
       };
 
       AddView.prototype.handleSubmit = function(e) {
         e.preventDefault();
         return $("#add-form").ajaxSubmit({
           data: {
-            token: this.model.get("token")
+            authentication_token: this.model.get("authentication_token")
           },
           success: this.handleResponse,
           error: this.handleError
@@ -49,11 +50,17 @@
       };
 
       AddView.prototype.handleResponse = function(response, status, xhr, form) {
-        return console.log(response);
+        if (status === "success") {
+          return this.render({
+            message: "Saved successfully!"
+          });
+        }
       };
 
-      AddView.prototype.handleError = function() {
-        return console.log("error!");
+      AddView.prototype.handleError = function(response) {
+        return this.render({
+          message: response.responseText
+        });
       };
 
       return AddView;

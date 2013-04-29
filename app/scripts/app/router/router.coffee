@@ -1,4 +1,4 @@
-define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/viewshared", "app/models/user"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, ViewSharedView, UserModel) ->
+define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/viewshared", "app/models/user", "app/collections/blessings"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, ViewSharedView, UserModel, BlessingsCollection) ->
  
   class AppRouter extends Backbone.Router
     
@@ -33,8 +33,10 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
       user = JSON.parse(localStorage.getItem("user"))
       if user and user.authentication_token
         userModel = new UserModel(user)
+        myBlessings = new BlessingsCollection({token: user.authentication_token})
+        
         new AddView({model: userModel}) if view is "add"
-        new ViewOwnView({model: userModel}) if view is "own"
+        new ViewOwnView({collection: myBlessings}) if view is "own"
         new ViewSharedView({model: userModel}) if view is "shared"
       else
         @login()

@@ -6807,7 +6807,7 @@ h1, h2, h3, h4, h5 {
 }
 
 /* line 27, ../../app/styles/_variables.scss */
-input, textarea {
+input, textarea, select {
   border: 1px solid #34495e !important;
   border-radius: 0px !important;
 }
@@ -6942,7 +6942,7 @@ a:hover {
   top: 0px;
   left: 0px;
   height: 100%;
-  width: 30%;
+  width: 40%;
   padding-top: 20px;
   padding-left: 20px;
   background-color: #e74c3c;
@@ -6951,40 +6951,58 @@ a:hover {
 /* line 105, ../../app/styles/main.scss */
 .left-bar h3 {
   font-size: 2.5em;
-}
-
-/* line 110, ../../app/styles/main.scss */
-.right-content {
-  width: 70%;
-}
-/* line 114, ../../app/styles/main.scss */
-.right-content h3 {
   padding-left: 20px;
 }
 
-/* line 119, ../../app/styles/main.scss */
+/* line 111, ../../app/styles/main.scss */
+.right-content {
+  width: 60%;
+  color: #34495e;
+}
+/* line 116, ../../app/styles/main.scss */
+.right-content h3 {
+  padding-left: 20px;
+}
+/* line 120, ../../app/styles/main.scss */
+.right-content form {
+  color: white;
+}
+/* line 122, ../../app/styles/main.scss */
+.right-content form input[type="submit"] {
+  margin-top: 20px;
+}
+/* line 127, ../../app/styles/main.scss */
+.right-content .notwide {
+  width: 392px;
+  margin-left: 20px;
+  background-color: #e74c3c;
+  text-shadow: none;
+  color: white;
+}
+
+/* line 136, ../../app/styles/main.scss */
 .menu {
   list-style: none;
   font-size: 20px;
   margin-top: 50px;
 }
-/* line 124, ../../app/styles/main.scss */
+/* line 141, ../../app/styles/main.scss */
 .menu li {
   padding: 20px 10px;
   font-family: 'Poiret One', serif;
   border-bottom: 1px solid #ecf0f1;
   font-weight: bold;
 }
-/* line 129, ../../app/styles/main.scss */
+/* line 146, ../../app/styles/main.scss */
 .menu li a {
-  color: #2980b9;
+  color: white;
 }
-/* line 134, ../../app/styles/main.scss */
+/* line 151, ../../app/styles/main.scss */
 .menu li.active {
-  background-color: white;
+  background-color: #ecf0f1;
   color: #e74c3c;
 }
-/* line 137, ../../app/styles/main.scss */
+/* line 154, ../../app/styles/main.scss */
 .menu li.active a {
-  color: #2980b9;
+  color: #34495e;
 }

@@ -8,8 +8,8 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!../templates/vie
     template: Handlebars.compile(viewownTemplate)
 
     initialize: ->
-      if localStorage.getItem("user")
-        @render()
+      @collection.fetch({async: false})
+      @render()
 
     render: ->
       Handlebars.registerPartial("sidebar", sidebarTemplate)
