@@ -1,102 +1,14 @@
 @import 'sass-bootstrap/lib/bootstrap';
 @import "compass/css3/box-shadow";
 @import '_variables';
-
-.hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
-}
-
-.hidden {
-  display: none;
-  visibility: hidden;
-}
-
-.left {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 50%;
-  padding-top: 20px;
-  background-color: $left;
-  color: white;
-
-  h1 {
-    text-align: center;
-  }
-}
-
-.right {
-  background-color: $clouds;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  height: 100%;
-  width: 50%;
-  padding: 10px 10px 0px 20px;
-}
-
-.login {
-  width: 400px;
-  height: 320px;
-  background-color: $box;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 80px;
-  border: 1px solid scale-lightness($box, -50%);
-  //@include box-shadow(scale-lightness($green, -50%) 0px 0px 3px);
-  padding: 1px 0px 0px 20px;
-}
-
-.signup {
-  @extend .login;
-  height: 360px;
-}
-
-.add {
-  @extend .login;
-  margin-left: 20px;
-  padding: 20px;
-}
-
-.box-a {
-  border: 0;
-  background-color: $button;
-  font-weight: bold;
-  padding: 12px 20px;
-  text-transform: uppercase;
-  transition: all .1s linear;
-  width: 170px;
-  margin-bottom: 5px;
-  text-align: center;
-
-  a {
-    color: #fff;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  &:hover {
-    color: scale-lightness(#fff, -10%);
-    background-color: scale-lightness($button, 8%);
-  }
-
-  &:active {
-    color: scale-lightness(#fff, -20%);
-    background-color: scale-lightness($button, 18%);
-  }
-
-}
+@import 'login';
 
 .left-bar {
   position: absolute;
   top: 0px;
   left: 0px;
   height: 100%;
-  width: 40%;
+  width: 30%;
   padding-top: 20px;
   padding-left: 20px;
   background-color: $left;
@@ -110,7 +22,7 @@
 
 .right-content {
   @extend .right;
-  width: 60%;
+  width: 70%;
   color: $grey2;
 
   h3 {
@@ -154,5 +66,19 @@
     a {
       color: $grey2;
     }
+  }
+}
+
+table.listing {
+  margin-left: 20px;
+  width: 80%;
+
+  thead tr {
+    background-color: $blue;
+    color: white;
+  }
+
+  a {
+    color: $blue;
   }
 }

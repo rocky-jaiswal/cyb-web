@@ -6,7 +6,8 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
       ""                    : "login"
       "signup"              : "signup"
       "add"                 : "add"
-      "viewOwn"             : "viewOwn"
+      "view"                : "viewOwn"
+      "edit/:id"            : "edit"
       "shared"              : "viewShared"
       "logout"              : "logout"
 
@@ -21,6 +22,9 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
 
     viewOwn: ->
       @checkAndNavigate("own")
+
+    edit: (id) ->
+      console.log id
 
     viewShared: ->
       @checkAndNavigate("shared")

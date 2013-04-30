@@ -28,9 +28,11 @@
 
       ViewOwnView.prototype.render = function() {
         Handlebars.registerPartial("sidebar", sidebarTemplate);
-        return $(this.el).html(this.template({
+        return $(this.el).html(this.template(_.extend({
           viewown: true
-        }));
+        }, {
+          collection: this.collection.toJSON()
+        })));
       };
 
       return ViewOwnView;

@@ -18,7 +18,8 @@
         "": "login",
         "signup": "signup",
         "add": "add",
-        "viewOwn": "viewOwn",
+        "view": "viewOwn",
+        "edit/:id": "edit",
         "shared": "viewShared",
         "logout": "logout"
       };
@@ -41,6 +42,10 @@
 
       AppRouter.prototype.viewOwn = function() {
         return this.checkAndNavigate("own");
+      };
+
+      AppRouter.prototype.edit = function(id) {
+        return console.log(id);
       };
 
       AppRouter.prototype.viewShared = function() {

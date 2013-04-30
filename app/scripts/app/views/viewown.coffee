@@ -13,4 +13,4 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!../templates/vie
 
     render: ->
       Handlebars.registerPartial("sidebar", sidebarTemplate)
-      $(@el).html(@template({viewown : true}))
+      $(@el).html(@template(_.extend({viewown : true}, {collection: @collection.toJSON()})))
