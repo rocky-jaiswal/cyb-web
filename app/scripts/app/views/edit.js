@@ -13,6 +13,7 @@
 
       function EditView() {
         this.handleError = __bind(this.handleError, this);
+        this.handleSuccessfulDelete = __bind(this.handleSuccessfulDelete, this);
         this.handleResponse = __bind(this.handleResponse, this);        _ref = EditView.__super__.constructor.apply(this, arguments);
         return _ref;
       }
@@ -20,7 +21,8 @@
       EditView.prototype.el = ".content";
 
       EditView.prototype.events = {
-        "submit #edit-form": "handleSubmit"
+        "submit #edit-form": "handleSubmit",
+        "submit #delete-form": "handleDelete"
       };
 
       EditView.prototype.template = Handlebars.compile(editTemplate);
@@ -51,10 +53,31 @@
         });
       };
 
+      EditView.prototype.handleDelete = function(e) {
+        e.preventDefault();
+        return $(e.currentTarget).ajaxSubmit({
+          data: {
+            id: this.model.get("id"),
+            authentication_token: this.model.get("token")
+          },
+          success: this.handleSuccessfulDelete,
+          error: this.handleError
+        });
+      };
+
       EditView.prototype.handleResponse = function(response, status, xhr, form) {
         if (status === "success") {
           return this.render({
             message: "Saved successfully!"
+          });
+        }
+      };
+
+      EditView.prototype.handleSuccessfulDelete = function(response, status, xhr, form) {
+        if (status === "success") {
+          alert("Record deleted successfully!");
+          return this.options.router.navigate("view", {
+            trigger: true
           });
         }
       };

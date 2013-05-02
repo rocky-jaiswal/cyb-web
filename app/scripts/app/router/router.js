@@ -67,7 +67,8 @@
           token: user.authentication_token
         });
         return new EditView({
-          model: blessingModel
+          model: blessingModel,
+          router: this
         });
       };
 

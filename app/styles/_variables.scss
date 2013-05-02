@@ -58,3 +58,18 @@ a {
   }
 
 }
+
+.btn-app-danger {
+  @extend .btn-app;
+  background-color: $orange;
+
+  &:hover {
+    color: scale-lightness(#fff, -10%);
+    background-color: scale-lightness($orange, 8%);
+  }
+
+  &:active {
+    color: scale-lightness(#fff, -20%);
+    background-color: scale-lightness($orange, 18%);
+  }
+}

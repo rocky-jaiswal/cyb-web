@@ -30,7 +30,7 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
     edit: (id) ->
       user = @checkUser()
       blessingModel = new BlessingModel({id: id, token: user.authentication_token})
-      new EditView({model: blessingModel})
+      new EditView({model: blessingModel, router: @})
 
     viewShared: ->
       user = @checkUser()
