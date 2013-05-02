@@ -3,3 +3,5 @@ define ["jquery", "underscore", "backbone"], ($, _, Backbone) ->
   
   class BlessingModel extends Backbone.Model
     
+    url: ->
+      "http://localhost:3000/users/" + @get("token") + "/blessings/" + @get("id")

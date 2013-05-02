@@ -1,4 +1,4 @@
-define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/viewshared", "app/models/user", "app/collections/blessings"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, ViewSharedView, UserModel, BlessingsCollection) ->
+define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection) ->
  
   class AppRouter extends Backbone.Router
     
@@ -18,29 +18,32 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
       new SignupView({router: @})
 
     add: ->
-      @checkAndNavigate("add")
+      user = @checkUser()
+      userModel = new UserModel(user)
+      new AddView({model: userModel})
 
     viewOwn: ->
-      @checkAndNavigate("own")
+      user = @checkUser()
+      myBlessings = new BlessingsCollection({token: user.authentication_token})
+      new ViewOwnView({collection: myBlessings})
 
     edit: (id) ->
-      console.log id
+      user = @checkUser()
+      blessingModel = new BlessingModel({id: id, token: user.authentication_token})
+      new EditView({model: blessingModel})
 
     viewShared: ->
-      @checkAndNavigate("shared")
+      user = @checkUser()
+      userModel = new UserModel(user)
+      new ViewSharedView({model: userModel})
 
     logout: ->
       localStorage.clear()
       @navigate("", {trigger: true})
 
-    checkAndNavigate: (view) ->
+    checkUser: ->
       user = JSON.parse(localStorage.getItem("user"))
       if user and user.authentication_token
-        userModel = new UserModel(user)
-        myBlessings = new BlessingsCollection({token: user.authentication_token})
-        
-        new AddView({model: userModel}) if view is "add"
-        new ViewOwnView({collection: myBlessings}) if view is "own"
-        new ViewSharedView({model: userModel}) if view is "shared"
+        return user
       else
-        @login()
+        @logout()

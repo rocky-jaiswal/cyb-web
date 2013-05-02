@@ -15,6 +15,10 @@
         return _ref;
       }
 
+      BlessingModel.prototype.url = function() {
+        return "http://localhost:3000/users/" + this.get("token") + "/blessings/" + this.get("id");
+      };
+
       return BlessingModel;
 
     })(Backbone.Model);

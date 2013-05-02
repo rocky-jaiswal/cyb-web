@@ -1,0 +1,25 @@
+{{> sidebar}}
+<div class="span6">
+  <div class="right-content">
+    <h3>Edit a Blessing</h3>
+    {{#if message}}
+      <div class="alert notwide">{{message}}</div>
+    {{/if}}
+    <div class="add">
+      <form action="http://localhost:3000/blessings/update" method="POST" id="edit-form">
+        <input type="text" placeholder="Title" name="blessing[title]" value="{{title}}">
+        <textarea placeholder="Description" name="blessing[description]">{{description}}</textarea>
+        <input type="date" placeholder="Date" name="blessing[date]" value="{{date}}">
+        <select name="blessing[shared]">
+          <option value="false" selected>Do not share</option> 
+          <option value="true">Share</option>
+        </select>
+        <br/>
+        <input type="submit" value="Save" class="btn-app">
+      </form>
+      <div class="box-a">
+        <a href="">Delete</a>
+      <div>
+    </div>
+  </div>
+</div>

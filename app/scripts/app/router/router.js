@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/viewshared", "app/models/user", "app/collections/blessings"], function($, Backbone, LoginView, SignupView, AddView, ViewOwnView, ViewSharedView, UserModel, BlessingsCollection) {
+  define(["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings"], function($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection) {
     var AppRouter, _ref;
 
     return AppRouter = (function(_super) {
@@ -37,19 +37,48 @@
       };
 
       AppRouter.prototype.add = function() {
-        return this.checkAndNavigate("add");
+        var user, userModel;
+
+        user = this.checkUser();
+        userModel = new UserModel(user);
+        return new AddView({
+          model: userModel
+        });
       };
 
       AppRouter.prototype.viewOwn = function() {
-        return this.checkAndNavigate("own");
+        var myBlessings, user;
+
+        user = this.checkUser();
+        myBlessings = new BlessingsCollection({
+          token: user.authentication_token
+        });
+        return new ViewOwnView({
+          collection: myBlessings
+        });
       };
 
       AppRouter.prototype.edit = function(id) {
-        return console.log(id);
+        var blessingModel, user;
+
+        user = this.checkUser();
+        blessingModel = new BlessingModel({
+          id: id,
+          token: user.authentication_token
+        });
+        return new EditView({
+          model: blessingModel
+        });
       };
 
       AppRouter.prototype.viewShared = function() {
-        return this.checkAndNavigate("shared");
+        var user, userModel;
+
+        user = this.checkUser();
+        userModel = new UserModel(user);
+        return new ViewSharedView({
+          model: userModel
+        });
       };
 
       AppRouter.prototype.logout = function() {
@@ -59,32 +88,14 @@
         });
       };
 
-      AppRouter.prototype.checkAndNavigate = function(view) {
-        var myBlessings, user, userModel;
+      AppRouter.prototype.checkUser = function() {
+        var user;
 
         user = JSON.parse(localStorage.getItem("user"));
         if (user && user.authentication_token) {
-          userModel = new UserModel(user);
-          myBlessings = new BlessingsCollection({
-            token: user.authentication_token
-          });
-          if (view === "add") {
-            new AddView({
-              model: userModel
-            });
-          }
-          if (view === "own") {
-            new ViewOwnView({
-              collection: myBlessings
-            });
-          }
-          if (view === "shared") {
-            return new ViewSharedView({
-              model: userModel
-            });
-          }
+          return user;
         } else {
-          return this.login();
+          return this.logout();
         }
       };
 
