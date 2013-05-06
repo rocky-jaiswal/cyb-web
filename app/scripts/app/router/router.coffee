@@ -1,4 +1,4 @@
-define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection) ->
+define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings", "app/collections/shared_blessings"], ($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection, SharedBlessingsCollection) ->
  
   class AppRouter extends Backbone.Router
     
@@ -33,9 +33,8 @@ define ["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/
       new EditView({model: blessingModel, router: @})
 
     viewShared: ->
-      user = @checkUser()
-      userModel = new UserModel(user)
-      new ViewSharedView({model: userModel})
+      sharedBlessings = new SharedBlessingsCollection()
+      new ViewSharedView({collection: sharedBlessings})
 
     logout: ->
       localStorage.clear()

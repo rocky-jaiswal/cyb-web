@@ -43,7 +43,7 @@
 
       EditView.prototype.handleSubmit = function(e) {
         e.preventDefault();
-        return $("#edit-form").ajaxSubmit({
+        return $(e.currentTarget).ajaxSubmit({
           data: {
             id: this.model.get("id"),
             authentication_token: this.model.get("token")

@@ -20,16 +20,19 @@
       ViewSharedView.prototype.template = Handlebars.compile(viewsharedTemplate);
 
       ViewSharedView.prototype.initialize = function() {
-        if (localStorage.getItem("user")) {
-          return this.render();
-        }
+        this.collection.fetch({
+          async: false
+        });
+        return this.render();
       };
 
       ViewSharedView.prototype.render = function() {
         Handlebars.registerPartial("sidebar", sidebarTemplate);
-        return $(this.el).html(this.template({
-          viewshared: true
-        }));
+        return $(this.el).html(this.template(_.extend({
+          viewown: true
+        }, {
+          collection: this.collection.toJSON()
+        })));
       };
 
       return ViewSharedView;

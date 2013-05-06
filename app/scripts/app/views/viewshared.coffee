@@ -8,9 +8,9 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!../templates/vie
     template: Handlebars.compile(viewsharedTemplate)
 
     initialize: ->
-      if localStorage.getItem("user")
-        @render()
+      @collection.fetch({async: false})
+      @render()
 
     render: ->
       Handlebars.registerPartial("sidebar", sidebarTemplate)
-      $(@el).html(@template({viewshared: true}))
+      $(@el).html(@template(_.extend({viewown : true}, {collection: @collection.toJSON()})))

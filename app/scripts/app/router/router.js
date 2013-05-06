@@ -3,7 +3,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  define(["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings"], function($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection) {
+  define(["jquery", "backbone", "app/views/login", "app/views/signup", "app/views/add", "app/views/viewown", "app/views/edit", "app/views/viewshared", "app/models/user", "app/models/blessing", "app/collections/blessings", "app/collections/shared_blessings"], function($, Backbone, LoginView, SignupView, AddView, ViewOwnView, EditView, ViewSharedView, UserModel, BlessingModel, BlessingsCollection, SharedBlessingsCollection) {
     var AppRouter, _ref;
 
     return AppRouter = (function(_super) {
@@ -73,12 +73,11 @@
       };
 
       AppRouter.prototype.viewShared = function() {
-        var user, userModel;
+        var sharedBlessings;
 
-        user = this.checkUser();
-        userModel = new UserModel(user);
+        sharedBlessings = new SharedBlessingsCollection();
         return new ViewSharedView({
-          model: userModel
+          collection: sharedBlessings
         });
       };
 

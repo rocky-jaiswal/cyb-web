@@ -21,7 +21,7 @@ define ["jquery", "underscore", "backbone", "handlebars", "text!../templates/edi
       
     handleSubmit: (e) ->
       e.preventDefault()
-      $("#edit-form").ajaxSubmit({data: {id: @model.get("id"), authentication_token: @model.get("token")}, success: @handleResponse, error: @handleError})
+      $(e.currentTarget).ajaxSubmit({data: {id: @model.get("id"), authentication_token: @model.get("token")}, success: @handleResponse, error: @handleError})
 
     handleDelete: (e) ->
       e.preventDefault()
