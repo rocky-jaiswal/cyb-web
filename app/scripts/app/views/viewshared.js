@@ -29,7 +29,7 @@
       ViewSharedView.prototype.render = function() {
         Handlebars.registerPartial("sidebar", sidebarTemplate);
         return $(this.el).html(this.template(_.extend({
-          viewown: true
+          viewshared: true
         }, {
           collection: this.collection.toJSON()
         })));

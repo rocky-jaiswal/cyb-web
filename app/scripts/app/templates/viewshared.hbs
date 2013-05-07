@@ -2,20 +2,13 @@
 <div class="span6">
   <div class="right-content">
     <h3>Shared Blessings</h3>
-    <table class="table table-bordered table-hover table-condensed listing">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Date</th>
-        </tr>
-      </thead>
+    <table class="table table-hover listing">
       <tbody>
         {{#each collection}}
           <tr>
+            <td>{{this.date}}</td>
             <td>{{this.title}}</td>
             <td>{{this.description}}</td>
-            <td>{{this.date}}</td>
           </tr>
         {{/each}}
       </tbody>
